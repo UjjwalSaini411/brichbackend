@@ -44,6 +44,13 @@ def submit_callback_request(request):
         if full_name and phone_number:
             callback_request = CallbackRequest(full_name=full_name, phone_number=phone_number, send_from=send_from)
             callback_request.save()
+            
+            subject = f'New Callback Request from {send_from}'
+            message = f'Name: {full_name}\n Phone Number: {phone_number}\nSend From:{send_from}'  # Customize this with all form fields
+            from_email = 'brich.leads@webminix.com'
+            recipient_list = ['priya.jain@webminix.com','rohan@webminix.com']  # Replace with your email address or a list of recipient addresses
+
+            send_mail(subject, message, from_email, recipient_list, fail_silently=False)
             logger.info(f"Saved CallbackRequest: {callback_request}")
             return Response({'message': 'Callback request submitted successfully'}, status=status.HTTP_201_CREATED)
         else:
@@ -66,6 +73,14 @@ def Creators_callback_request(request):
         if full_name and phone_number:
             callback_request = CreatorsCallbackRequest(full_name=full_name, phone_number=phone_number, send_from=send_from)
             callback_request.save()
+            
+            subject = f'New Callback Request from {send_from}'
+            message = f'Name: {full_name}\n Phone Number: {phone_number}\nSend From:{send_from}'  # Customize this with all form fields
+            from_email = 'brich.leads@webminix.com'
+            recipient_list = ['priya.jain@webminix.com','rohan@webminix.com']  # Replace with your email address or a list of recipient addresses
+
+            send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+            
             logger.info(f"Saved CreatorsCallbackRequest: {callback_request}")
             return Response({'message': 'Callback request submitted successfully'}, status=status.HTTP_201_CREATED)
         else:
@@ -106,6 +121,13 @@ def submit_contact_us_request(request):
                 send_from=send_from,
             )
             contact_us_request.save()
+            
+            subject = f'New form entry for Brands {send_from}'
+            message = f'Company Name: {company_name}\nEmail: {email}\nBusiness Nature: {nature_of_business}\nPostal Code: {postcode}\n Address: {address}\nPhone Number: {phone_number}\nSend From:{send_from}'  # Customize this with all form fields
+            from_email = 'brich.leads@webminix.com'
+            recipient_list = ['priya.jain@webminix.com','rohan@webminix.com']  # Replace with your email address or a list of recipient addresses
+            send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+            
             logger.info(f"Saved ContactUsRequest: {contact_us_request}")
             return Response({'message': 'Contact Us request submitted successfully'}, status=status.HTTP_201_CREATED)
         else:
@@ -139,6 +161,14 @@ def submit_creators_request(request):
 
             )
             creators_request.save()  
+            
+            subject = f'New form entry for Creators {send_from}'
+            message = f'Name: {name}\nEmail: {email}\nPhone Number: {phone_number} \nSend From:{send_from}'  # Customize this with all form fields
+            from_email = 'brich.leads@webminix.com'
+            recipient_list = ['priya.jain@webminix.com','rohan@webminix.com']  # Replace with your email address or a list of recipient addresses
+
+            send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+            
             logger.info(f"Saved CreatorsRequest: {creators_request}")
             return Response({'message': 'Creators request submitted successfully'}, status=status.HTTP_201_CREATED)
         else:
@@ -164,7 +194,6 @@ def submit_CreatorsIND_request(request):
             name and 
             phone_number and  
             email and socialLink and creatorType
-            and description
         ):
             creators_request = CreatorsIND(
                 name=name,  
@@ -176,10 +205,10 @@ def submit_CreatorsIND_request(request):
 
             )
             creators_request.save()  
-            subject = 'New CreatorsIND Form Submission'
-            message = f'Name: {name}\nEmail: {email}\nCreator Type: {creatorType}\n Social Link: {socialLink}\n Description: {description}\n'  # Customize this with all form fields
-            from_email = 'sainiujjwal411@gmail.com'
-            recipient_list = ['ujjwalsaini411@gmail.com']  # Replace with your email address or a list of recipient addresses
+            subject = 'New form entry for creator.ind.in'
+            message = f'Name: {name}\nEmail: {email}\nCreator Type: {creatorType}\nSocial Link: {socialLink}\n Description: {description}\nPhone Number:{phone_number}'  # Customize this with all form fields
+            from_email = 'brich.leads@webminix.com'
+            recipient_list = ['priya.jain@webminix.com','rohan@webminix.com']  
 
             send_mail(subject, message, from_email, recipient_list, fail_silently=False)
             

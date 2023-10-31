@@ -30,12 +30,17 @@ ALLOWED_HOSTS = []
 
 # settings.py
 
+# settings.py
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP server address
-EMAIL_PORT = 587  # Replace with the appropriate port
-EMAIL_USE_TLS = True  # Use TLS (True or False)
-EMAIL_HOST_USER = 'sainiujjwal411@gmail.com'  # Replace with your email address
-EMAIL_HOST_PASSWORD = 'txpayhgwairrsljt'  # Replace with your email password
+EMAIL_HOST = 'mail.webminix.com'  
+EMAIL_PORT = 465 
+EMAIL_USE_SSL = True 
+EMAIL_HOST_USER = 'brich.leads@webminix.com' 
+EMAIL_HOST_PASSWORD = 'brich.leads'  
+
+DEFAULT_FROM_EMAIL = 'brich.leads@webminix.com'
+
 
 # ...
 
