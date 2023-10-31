@@ -48,3 +48,17 @@ class CreatorsRequest(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CreatorsIND(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=15)
+    creatorType = models.CharField(max_length=255)
+    socialLink = models.CharField(max_length=255)
+    description = models.TextField()
+
+    
+
+    def __str__(self):
+        return self.name

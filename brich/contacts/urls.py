@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CallbackRequestListCreateView, submit_callback_request, ContactUsRequestListCreateView, submit_contact_us_request, submit_creators_request, Creators_callback_request
+from .views import CallbackRequestListCreateView, submit_callback_request, ContactUsRequestListCreateView, submit_contact_us_request, submit_creators_request, Creators_callback_request , submit_CreatorsIND_request
 
 urlpatterns = [
     path('callback-requests/', CallbackRequestListCreateView.as_view(), name='callback-request-list-create'),
@@ -7,5 +7,6 @@ urlpatterns = [
     path('creators-callback-request/', Creators_callback_request, name='creators-callback-request'),
     path('contact-us/', submit_contact_us_request, name='contact-us-list-create'),
     path('creators/', submit_creators_request, name='creators-list-create'),  # Define the URL for CreatorsRequest view
+    path('creators-ind/', submit_CreatorsIND_request, name='creators-ind-list-create'),  
 ]
 

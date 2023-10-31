@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CallbackRequest, ContactUsRequest, CreatorsRequest, CreatorsCallbackRequest
+from .models import CallbackRequest, ContactUsRequest, CreatorsRequest, CreatorsCallbackRequest , CreatorsIND
 
 class CallbackRequestSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,6 +17,11 @@ class ContactUsRequestSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class CreatorsRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactUsRequest
+        fields = '__all__'
+        
+class CreatorsINDRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactUsRequest
         fields = '__all__'
